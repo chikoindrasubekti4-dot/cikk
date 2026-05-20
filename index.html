@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Estetik</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0f0f0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    header{
+      padding:40px 20px;
+      text-align:center;
+      background:linear-gradient(135deg,#111,#1f1f1f);
+      position:sticky;
+      top:0;
+      z-index:99;
+      backdrop-filter:blur(10px);
+    }
+
+    header h1{
+      font-size:32px;
+      font-weight:600;
+      letter-spacing:2px;
+    }
+
+    header p{
+      margin-top:10px;
+      color:#aaa;
+      font-size:14px;
+    }
+
+    .gallery{
+      column-count:2;
+      column-gap:12px;
+      padding:12px;
+    }
+
+    @media(min-width:700px){
+      .gallery{
+        column-count:4;
+      }
+    }
+
+    .card{
+      position:relative;
+      margin-bottom:12px;
+      overflow:hidden;
+      border-radius:22px;
+      break-inside:avoid;
+      cursor:pointer;
+    }
+
+    .card img{
+      width:100%;
+      display:block;
+      border-radius:22px;
+      transition:0.4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+      filter:brightness(0.8);
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+      opacity:0;
+      transition:0.3s;
+      display:flex;
+      align-items:flex-end;
+      padding:18px;
+    }
+
+    .card:hover .overlay{
+      opacity:1;
+    }
+
+    .overlay h3{
+      font-size:15px;
+      font-weight:500;
+    }
+
+    .popup{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.92);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+      padding:20px;
+    }
+
+    .popup.active{
+      display:flex;
+    }
+
+    .popup img{
+      max-width:95%;
+      max-height:90%;
+      border-radius:18px;
+      animation:zoom 0.3s ease;
+    }
+
+    @keyframes zoom{
+      from{
+        transform:scale(0.8);
+        opacity:0;
+      }
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    .close{
+      position:absolute;
+      top:25px;
+      right:25px;
+      font-size:35px;
+      cursor:pointer;
+      color:white;
+    }
+
+    footer{
+      padding:30px;
+      text-align:center;
+      color:#777;
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MY GALLERY</h1>
+  <p>Kumpulan foto estetik favorit</p>
+</header>
+
+<div class="gallery">
+
+  <div class="card">
+    <img src="foto1.jpg">
+    <div class="overlay">
+      <h3>Foto Estetik 1</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="foto2.jpg">
+    <div class="overlay">
+      <h3>Foto Estetik 2</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="foto3.jpg">
+    <div class="overlay">
+      <h3>Foto Estetik 3</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="foto4.jpg">
+    <div class="overlay">
+      <h3>Foto Estetik 4</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="foto5.jpg">
+    <div class="overlay">
+      <h3>Foto Estetik 5</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="foto6.jpg">
+    <div class="overlay">
+      <h3>Foto Estetik 6</h3>
+    </div>
+  </div>
+
+</div>
+
+<div class="popup" id="popup">
+  <span class="close">&times;</span>
+  <img id="popup-img">
+</div>
+
+<footer>
+  © 2026 • Galeri Estetik
+</footer>
+
+<script>
+  const cards = document.querySelectorAll('.card img');
+  const popup = document.getElementById('popup');
+  const popupImg = document.getElementById('popup-img');
+  const closeBtn = document.querySelector('.close');
+
+  cards.forEach(img=>{
+    img.onclick=()=>{
+      popup.classList.add('active');
+      popupImg.src=img.src;
+    }
+  });
+
+  closeBtn.onclick=()=>{
+    popup.classList.remove('active');
+  }
+
+  popup.onclick=(e)=>{
+    if(e.target != popupImg){
+      popup.classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
