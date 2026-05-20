@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri Estetik</title>
+  <title>Pink Love Gallery</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -17,37 +17,40 @@
     }
 
     body{
-      background:#0f0f0f;
-      color:white;
+      background:linear-gradient(to bottom,#ffb6d9,#ffcce5,#ffe4f2);
       overflow-x:hidden;
+      color:white;
     }
 
     header{
-      padding:40px 20px;
       text-align:center;
-      background:linear-gradient(135deg,#111,#1f1f1f);
+      padding:45px 25px;
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(10px);
       position:sticky;
       top:0;
       z-index:99;
-      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.2);
     }
 
     header h1{
-      font-size:32px;
-      font-weight:600;
-      letter-spacing:2px;
+      font-size:34px;
+      color:white;
+      text-shadow:0 0 10px rgba(255,255,255,0.5);
+      margin-bottom:15px;
     }
 
     header p{
-      margin-top:10px;
-      color:#aaa;
+      color:#fff0f7;
       font-size:14px;
+      line-height:1.8;
+      margin-top:10px;
     }
 
     .gallery{
       column-count:2;
-      column-gap:12px;
-      padding:12px;
+      column-gap:14px;
+      padding:14px;
     }
 
     @media(min-width:700px){
@@ -58,17 +61,18 @@
 
     .card{
       position:relative;
-      margin-bottom:12px;
       overflow:hidden;
-      border-radius:22px;
+      border-radius:25px;
+      margin-bottom:14px;
       break-inside:avoid;
       cursor:pointer;
+      box-shadow:0 6px 20px rgba(255,105,180,0.3);
     }
 
     .card img{
       width:100%;
       display:block;
-      border-radius:22px;
+      border-radius:25px;
       transition:0.4s;
     }
 
@@ -80,12 +84,12 @@
     .overlay{
       position:absolute;
       inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
-      opacity:0;
-      transition:0.3s;
+      background:linear-gradient(to top,rgba(255,20,147,0.6),transparent);
       display:flex;
       align-items:flex-end;
-      padding:18px;
+      padding:20px;
+      opacity:0;
+      transition:0.3s;
     }
 
     .card:hover .overlay{
@@ -94,13 +98,15 @@
 
     .overlay h3{
       font-size:15px;
-      font-weight:500;
+      color:white;
+      font-weight:400;
     }
 
     .popup{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.92);
+      background:rgba(255,182,193,0.3);
+      backdrop-filter:blur(8px);
       display:none;
       justify-content:center;
       align-items:center;
@@ -115,7 +121,8 @@
     .popup img{
       max-width:95%;
       max-height:90%;
-      border-radius:18px;
+      border-radius:20px;
+      border:4px solid white;
       animation:zoom 0.3s ease;
     }
 
@@ -134,24 +141,54 @@
       position:absolute;
       top:25px;
       right:25px;
-      font-size:35px;
-      cursor:pointer;
+      font-size:38px;
       color:white;
+      cursor:pointer;
+    }
+
+    .love{
+      position:fixed;
+      color:white;
+      animation:fall linear infinite;
+      top:-10px;
+      z-index:1;
+      opacity:0.7;
+    }
+
+    @keyframes fall{
+      to{
+        transform:translateY(110vh);
+      }
     }
 
     footer{
-      padding:30px;
       text-align:center;
-      color:#777;
+      padding:40px 20px;
+      color:white;
       font-size:14px;
+      line-height:1.8;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>MY GALLERY</h1>
-  <p>Kumpulan foto estetik favorit</p>
+  <h1>💖 PINK LOVE GALLERY 💖</h1>
+
+  <p>
+    welcome to my little pink world ✨
+  </p>
+
+  <p>
+    a collection of sweet memories, soft moments,
+    beautiful skies, random photos, and everything
+    that makes life feel warm and magical 💕
+  </p>
+
+  <p>
+    sometimes memories fade,
+    but photos keep feelings alive 🌷
+  </p>
 </header>
 
 <div class="gallery">
@@ -159,42 +196,42 @@
   <div class="card">
     <img src="foto1.jpg">
     <div class="overlay">
-      <h3>Foto Estetik 1</h3>
+      <h3>soft memories 🌸</h3>
     </div>
   </div>
 
   <div class="card">
     <img src="foto2.jpg">
     <div class="overlay">
-      <h3>Foto Estetik 2</h3>
+      <h3>pink clouds ☁️</h3>
     </div>
   </div>
 
   <div class="card">
     <img src="foto3.jpg">
     <div class="overlay">
-      <h3>Foto Estetik 3</h3>
+      <h3>beautiful moment 💕</h3>
     </div>
   </div>
 
   <div class="card">
     <img src="foto4.jpg">
     <div class="overlay">
-      <h3>Foto Estetik 4</h3>
+      <h3>dreamy day 🩷</h3>
     </div>
   </div>
 
   <div class="card">
     <img src="foto5.jpg">
     <div class="overlay">
-      <h3>Foto Estetik 5</h3>
+      <h3>late night vibes 🌙</h3>
     </div>
   </div>
 
   <div class="card">
     <img src="foto6.jpg">
     <div class="overlay">
-      <h3>Foto Estetik 6</h3>
+      <h3>tiny happiness 🎀</h3>
     </div>
   </div>
 
@@ -206,7 +243,22 @@
 </div>
 
 <footer>
-  © 2026 • Galeri Estetik
+
+  <p>💖 made with love 💖</p>
+
+  <br>
+
+  <p>
+    "collecting moments,
+    not things."
+  </p>
+
+  <br>
+
+  <p>
+    thank you for visiting my gallery ✨
+  </p>
+
 </footer>
 
 <script>
@@ -231,6 +283,24 @@
       popup.classList.remove('active');
     }
   }
+
+  function createLove(){
+    const love = document.createElement('div');
+    love.classList.add('love');
+    love.innerHTML='💖';
+
+    love.style.left=Math.random()*100+'vw';
+    love.style.fontSize=(Math.random()*20+15)+'px';
+    love.style.animationDuration=(Math.random()*5+5)+'s';
+
+    document.body.appendChild(love);
+
+    setTimeout(()=>{
+      love.remove();
+    },10000);
+  }
+
+  setInterval(createLove,400);
 </script>
 
 </body>
