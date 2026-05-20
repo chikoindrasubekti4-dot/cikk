@@ -1,307 +1,61 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pink Love Gallery</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
-
-    body{
-      background:linear-gradient(to bottom,#ffb6d9,#ffcce5,#ffe4f2);
-      overflow-x:hidden;
-      color:white;
-    }
-
-    header{
-      text-align:center;
-      padding:45px 25px;
-      background:rgba(255,255,255,0.15);
-      backdrop-filter:blur(10px);
-      position:sticky;
-      top:0;
-      z-index:99;
-      border-bottom:1px solid rgba(255,255,255,0.2);
-    }
-
-    header h1{
-      font-size:34px;
-      color:white;
-      text-shadow:0 0 10px rgba(255,255,255,0.5);
-      margin-bottom:15px;
-    }
-
-    header p{
-      color:#fff0f7;
-      font-size:14px;
-      line-height:1.8;
-      margin-top:10px;
-    }
-
-    .gallery{
-      column-count:2;
-      column-gap:14px;
-      padding:14px;
-    }
-
-    @media(min-width:700px){
-      .gallery{
-        column-count:4;
-      }
-    }
-
-    .card{
-      position:relative;
-      overflow:hidden;
-      border-radius:25px;
-      margin-bottom:14px;
-      break-inside:avoid;
-      cursor:pointer;
-      box-shadow:0 6px 20px rgba(255,105,180,0.3);
-    }
-
-    .card img{
-      width:100%;
-      display:block;
-      border-radius:25px;
-      transition:0.4s;
-    }
-
-    .card:hover img{
-      transform:scale(1.05);
-      filter:brightness(0.8);
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(255,20,147,0.6),transparent);
-      display:flex;
-      align-items:flex-end;
-      padding:20px;
-      opacity:0;
-      transition:0.3s;
-    }
-
-    .card:hover .overlay{
-      opacity:1;
-    }
-
-    .overlay h3{
-      font-size:15px;
-      color:white;
-      font-weight:400;
-    }
-
-    .popup{
-      position:fixed;
-      inset:0;
-      background:rgba(255,182,193,0.3);
-      backdrop-filter:blur(8px);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:999;
-      padding:20px;
-    }
-
-    .popup.active{
-      display:flex;
-    }
-
-    .popup img{
-      max-width:95%;
-      max-height:90%;
-      border-radius:20px;
-      border:4px solid white;
-      animation:zoom 0.3s ease;
-    }
-
-    @keyframes zoom{
-      from{
-        transform:scale(0.8);
-        opacity:0;
-      }
-      to{
-        transform:scale(1);
-        opacity:1;
-      }
-    }
-
-    .close{
-      position:absolute;
-      top:25px;
-      right:25px;
-      font-size:38px;
-      color:white;
-      cursor:pointer;
-    }
-
-    .love{
-      position:fixed;
-      color:white;
-      animation:fall linear infinite;
-      top:-10px;
-      z-index:1;
-      opacity:0.7;
-    }
-
-    @keyframes fall{
-      to{
-        transform:translateY(110vh);
-      }
-    }
-
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      color:white;
-      font-size:14px;
-      line-height:1.8;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>💖 PINK LOVE GALLERY 💖</h1>
-
-  <p>
-    welcome to my little pink world ✨
-  </p>
-
-  <p>
-    a collection of sweet memories, soft moments,
-    beautiful skies, random photos, and everything
-    that makes life feel warm and magical 💕
-  </p>
-
-  <p>
-    sometimes memories fade,
-    but photos keep feelings alive 🌷
-  </p>
-</header>
-
-<div class="gallery">
-
-  <div class="card">
-    <img src="foto1.jpg">
-    <div class="overlay">
-      <h3>soft memories 🌸</h3>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="foto2.jpg">
-    <div class="overlay">
-      <h3>pink clouds ☁️</h3>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="foto3.jpg">
-    <div class="overlay">
-      <h3>beautiful moment 💕</h3>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="foto4.jpg">
-    <div class="overlay">
-      <h3>dreamy day 🩷</h3>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="foto5.jpg">
-    <div class="overlay">
-      <h3>late night vibes 🌙</h3>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="foto6.jpg">
-    <div class="overlay">
-      <h3>tiny happiness 🎀</h3>
-    </div>
-  </div>
-
-</div>
-
-<div class="popup" id="popup">
-  <span class="close">&times;</span>
-  <img id="popup-img">
-</div>
-
-<footer>
-
-  <p>💖 made with love 💖</p>
-
-  <br>
-
-  <p>
-    "collecting moments,
-    not things."
-  </p>
-
-  <br>
-
-  <p>
-    thank you for visiting my gallery ✨
-  </p>
-
-</footer>
-
-<script>
-  const cards = document.querySelectorAll('.card img');
-  const popup = document.getElementById('popup');
-  const popupImg = document.getElementById('popup-img');
-  const closeBtn = document.querySelector('.close');
-
-  cards.forEach(img=>{
-    img.onclick=()=>{
-      popup.classList.add('active');
-      popupImg.src=img.src;
-    }
-  });
-
-  closeBtn.onclick=()=>{
-    popup.classList.remove('active');
-  }
-
-  popup.onclick=(e)=>{
-    if(e.target != popupImg){
-      popup.classList.remove('active');
-    }
-  }
-
-  function createLove(){
-    const love = document.createElement('div');
-    love.classList.add('love');
-    love.innerHTML='💖';
-
-    love.style.left=Math.random()*100+'vw';
-    love.style.fontSize=(Math.random()*20+15)+'px';
-    love.style.animationDuration=(Math.random()*5+5)+'s';
-
-    document.body.appendChild(love);
-
-    setTimeout(()=>{
-      love.remove();
-    },10000);
-  }
-
-  setInterval(createLove,400);
-</script>
-
-</body>
+<!-- index.html -->  
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="description" content="Galeri foto keluarga Numindra Family. Halaman beranda dengan Foto Bareng dan tautan album Chiko & Hanum.">  
+  <title>Numindra Family - Beranda</title>  
+  <link rel="stylesheet" href="styles.css">  
+</head>  
+<body class="home-theme">  
+  <header class="home-theme">  
+    <h1>Numindra Family</h1>  
+    <nav>  
+      <a href="index.html">Beranda</a> |   
+      <a href="chiko.html">Album Chiko</a> |   
+      <a href="hanum.html">Album Hanum</a>  
+    </nav>  
+  </header>  
+  <main>  
+    <h2>Foto Bareng (Fotbar)</h2>  
+    <div class="gallery">  
+      <div class="card">  
+        <img src="fotobar1.jpg" alt="Foto keluarga Numindra bergaya bersama 1">  
+        <div class="overlay overlay-home">Foto Bareng 1</div>  
+      </div>  
+      <div class="card">  
+        <img src="fotobar2.jpg" alt="Foto keluarga Numindra bergaya bersama 2">  
+        <div class="overlay overlay-home">Foto Bareng 2</div>  
+      </div>  
+      <div class="card">  
+        <img src="fotobar3.jpg" alt="Foto keluarga Numindra bergaya bersama 3">  
+        <div class="overlay overlay-home">Foto Bareng 3</div>  
+      </div>  
+      <div class="card">  
+        <img src="fotobar4.jpg" alt="Foto keluarga Numindra bergaya bersama 4">  
+        <div class="overlay overlay-home">Foto Bareng 4</div>  
+      </div>  
+      <div class="card">  
+        <img src="fotobar5.jpg" alt="Foto keluarga Numindra bergaya bersama 5">  
+        <div class="overlay overlay-home">Foto Bareng 5</div>  
+      </div>  
+    </div>  
+  
+    <h2>Album Keluarga</h2>  
+    <p>Lihat album khusus untuk Chiko dan Hanum:</p>  
+    <ul>  
+      <li><a href="chiko.html">Album Chiko (Tema Biru-Cyan)</a></li>  
+      <li><a href="hanum.html">Album Hanum (Tema Pink)</a></li>  
+    </ul>  
+  </main>  
+  
+  <!-- Popup container -->  
+  <div id="popup" class="popup">  
+    <span class="close">&times;</span>  
+    <img src="" alt="">  
+  </div>  
+  
+  <script src="script.js"></script>  
+</body>  
 </html>
